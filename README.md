@@ -1,6 +1,16 @@
 # NgUsermanager
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+## Node and CLI Version
+
+Node.js version:    v7.9.0
+NPM version:        4.2.0
+
+## Installing node dependencies
+1) Pull project from github: "git clone https://github.com/katson95/ng-usermanager.git"
+2) cd into project folder
+3) Run "npm install"
+4) run app: ng serve
 
 ## Development server
 
