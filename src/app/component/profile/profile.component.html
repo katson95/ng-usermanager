@@ -1,0 +1,20 @@
+<form>
+	<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid"
+		style="margin: 10px 0px">
+		<div class="ui-grid-row">
+			<p>Please enter a number between {{minimumValue}} and
+				{{maximumValue}}</p>
+		</div>
+		<div class="ui-grid-row">
+			<div class="ui-grid-col-12">
+				<input pInputText type="text" #userInput />
+			</div>
+		</div>
+		<div class="ui-grid-row">
+			<div class="ui-grid-col-2">
+				<button pButton type="submit" label="Result"
+					(click)="onCheckResult(userInput)"></button>
+			</div>
+		</div>
+	</div>
+</form>

@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { LoginComponent } from './component/login/login.component';
 import { HeaderComponent } from './component/header/header.component';
-
+import { ProfileComponent } from './component/profile/profile.component';
 
 
 import {
@@ -24,12 +24,14 @@ import {
   DataTableModule,
   SharedModule} from 'primeng/primeng';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
