@@ -1,8 +1,7 @@
 
-
-import { LoginComponent } from './component/login/login.component';
-import { ProfileComponent } from './component/profile/profile.component';
-import { RegistrationComponent } from './component/registration/registration.component';
+import { LoginComponent } from './view/component/login/login.component';
+import { ProfileComponent } from './view/component/profile/profile.component';
+import { RegistrationComponent } from './view/component/registration/registration.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },

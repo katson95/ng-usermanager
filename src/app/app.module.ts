@@ -1,15 +1,15 @@
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { RegistrationComponent } from './component/registration/registration.component';
-import { LoginComponent } from './component/login/login.component';
-import { HeaderComponent } from './component/header/header.component';
-import { ProfileComponent } from './component/profile/profile.component';
-
+import { LoginComponent } from './view/component/login/login.component';
+import { ProfileComponent } from './view/component/profile/profile.component';
+import { RegistrationComponent } from './view/component/registration/registration.component';
+import { HeaderComponent } from './view/header/header.component';
 
 import {
   InputTextModule,
@@ -22,7 +22,8 @@ import {
   DataListModule,
   DataGridModule,
   DataTableModule,
-  SharedModule} from 'primeng/primeng';
+  SharedModule
+} from 'primeng/primeng';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {
     ProfileComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpModule,

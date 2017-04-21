@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
   }
 
   onCheckResult(userInput: HTMLInputElement) {
-    console.log('User Input value: ' + userInput);
+    console.log('User Input value: ' + userInput.value);
     this.userValue = Number(userInput.value);
   }
 

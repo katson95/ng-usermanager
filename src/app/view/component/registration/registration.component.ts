@@ -1,4 +1,4 @@
-import { User } from '../../model/user';
+import { User } from '../../../model/user';
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, Message, SelectItem } from 'primeng/components/common/api';
 
