@@ -60,13 +60,16 @@ export class RegistrationComponent implements OnInit {
   registerUser(user: User) {
     console.log(JSON.stringify(user));
     this.store.dispatch(this.userActions.addUser(user));
+    this.submitted = true;
+    this.msgs = [];
+    this.msgs.push({ severity: 'info', summary: 'Success', detail: 'Form Submitted' });
   }
 
   onSubmit(value: string) {
     this.submitted = true;
     this.msgs = [];
     this.msgs.push({ severity: 'info', summary: 'Success', detail: 'Form Submitted' });
-}
+  }
 
 
 }

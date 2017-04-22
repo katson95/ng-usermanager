@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
 	<p-panel header="Login">
 	<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid"
 		style="margin: 10px 0px">
@@ -6,20 +6,20 @@
 		<div class="ui-grid-row">
 			<div class="ui-grid-col-2">Username:</div>
 			<div class="ui-grid-col-6">
-				<input pInputText type="text" />
+				<input pInputText type="text" formControlName="username"/>
 			</div>
 
 		</div>
 		<div class="ui-grid-row">
 			<div class="ui-grid-col-2">Password:</div>
 			<div class="ui-grid-col-6">
-				<input pInputText type="password" />
+				<input pInputText type="password" formControlName="password"/>
 			</div>
 
 		</div>
 		<div class="ui-grid-row">
 			<div class="ui-grid-col-2"></div>
-			<div class="ui-grid-col-6">
+			<div class="ui-grid-col-2">
 				<button pButton type="submit" label="Login"></button>
 			</div>
 			<div class="ui-grid-col-4"></div>

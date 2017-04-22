@@ -9,7 +9,6 @@ import { HttpModule } from '@angular/http';
 
 import { StoreModule, combineReducers } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { DBModule } from '@ngrx/db';
 import { RouterStoreModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
@@ -25,6 +24,7 @@ import { HeaderComponent } from './view/header/header.component';
 
 import { schema } from './db';
 import { userReducer } from './reducer/user.reducer';
+import { AuthenticationService } from './service/authentication.service';
 
 import {
   InputTextModule,
@@ -86,10 +86,6 @@ import {
      */
     EffectsModule.run(RegistrationEffects),
 
-    /**
-     * DB Config
-     */
-    DBModule.provideDB(schema),
 
     /**
     * Devtools Config
@@ -99,7 +95,7 @@ import {
 
     StoreLogMonitorModule
   ],
-  providers: [UserActions],
+  providers: [UserActions, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
