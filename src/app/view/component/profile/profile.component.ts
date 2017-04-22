@@ -10,6 +10,8 @@ export class ProfileComponent implements OnInit {
   minimumValue: number = 1;
   maximumValue: number = 6;
   resultValue: number;
+  
+  val2: number;
 
   userValue: number;
 

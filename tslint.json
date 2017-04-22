@@ -10,9 +10,7 @@
       "check-space"
     ],
     "curly": true,
-    "eofline": true,
     "forin": true,
-    "import-blacklist": [true, "rxjs"],
     "import-spacing": true,
     "indent": [
       true,
@@ -44,7 +42,6 @@
     "no-debugger": true,
     "no-duplicate-variable": true,
     "no-empty": false,
-    "no-empty-interface": true,
     "no-eval": true,
     "no-inferrable-types": [true, "ignore-params"],
     "no-shadowed-variable": true,

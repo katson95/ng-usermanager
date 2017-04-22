@@ -1,6 +1,15 @@
-import { User } from '../../../model/user';
+import { UserActions } from '../../../action/registration.action';
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, Message, SelectItem } from 'primeng/components/common/api';
+
+import { Store } from '@ngrx/store';
+import { User } from '../../../model/user.model';
+
+
+import { AppState } from '../../../reducer/appState';
+import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
+
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-registration',
@@ -9,21 +18,37 @@ import { ConfirmationService, Message, SelectItem } from 'primeng/components/com
 })
 export class RegistrationComponent implements OnInit {
 
+  user$: Observable<User>;
+
+  userList$: Observable<User[]>;
+
+
   msgs: Message[] = [];
 
+  userform: FormGroup;
 
   submitted: boolean;
 
   genders: SelectItem[];
 
-  description: string;
-
   userList: Array<User> = [];
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder,
+    private store: Store<AppState>,
+    private userActions: UserActions, ) {
+    this.user$ = store.select('user');
+    this.userList$ = store.select('userList');
+  }
 
   ngOnInit() {
-
+    this.userform = this.fb.group({
+      'firstname': new FormControl('', Validators.required),
+      'lastname': new FormControl('', Validators.required),
+      'password': new FormControl('', [Validators.required, Validators.minLength(6)]),
+      'username': new FormControl(''),
+      'gender': new FormControl('')
+    });
 
     this.genders = [];
     this.genders.push({ label: 'Select Gender', value: '' });
@@ -32,19 +57,16 @@ export class RegistrationComponent implements OnInit {
 
   }
 
-  addUser(user: User) {
-    console.log('Adding user ' + user);
-
+  registerUser(user: User) {
+    console.log(JSON.stringify(user));
+    this.store.dispatch(this.userActions.addUser(user));
   }
 
   onSubmit(value: string) {
     this.submitted = true;
     this.msgs = [];
     this.msgs.push({ severity: 'info', summary: 'Success', detail: 'Form Submitted' });
-
-
-
-  }
+}
 
 
 }

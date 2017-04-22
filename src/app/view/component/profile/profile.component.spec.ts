@@ -1,6 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ProfileComponent } from './profile.component';
+
+import {
+  InputTextModule,
+  ButtonModule,
+  ConfirmDialogModule,
+  PanelModule,
+  DropdownModule,
+  InputTextareaModule,
+  GrowlModule,
+  DataListModule,
+  DataGridModule,
+  DataTableModule,
+  SpinnerModule,
+  SharedModule
+} from 'primeng/primeng';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -8,7 +24,12 @@ describe('ProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ProfileComponent]
+      declarations: [ProfileComponent],
+      imports: [
+        BrowserAnimationsModule,
+        SpinnerModule,
+        PanelModule
+      ]
     })
       .compileComponents();
   }));

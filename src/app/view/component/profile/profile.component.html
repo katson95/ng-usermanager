@@ -1,5 +1,6 @@
+
+<p-panel header="Enter Number">
 <form>
-	<p-panel header="Enter Number">
 	<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid"
 		style="margin: 10px 0px">
 		<div class="ui-grid-row">
@@ -8,7 +9,10 @@
 		</div>
 		<div class="ui-grid-row">
 			<div class="ui-grid-col-12">
-				<input pInputText type="text" #userInput />
+				<p-spinner size="30" 
+				[min]="minimumValue" 
+				[max]="maximumValue"
+				#userInput></p-spinner>
 			</div>
 		</div>
 		<div class="ui-grid-row">
@@ -18,5 +22,5 @@
 			</div>
 		</div>
 	</div>
-	</p-panel>
 </form>
+</p-panel>
