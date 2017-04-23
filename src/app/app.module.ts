@@ -9,7 +9,6 @@ import { HttpModule } from '@angular/http';
 
 import { StoreModule, combineReducers } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { RouterStoreModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 import { storeLogger } from 'ngrx-store-logger';
@@ -24,6 +23,7 @@ import { HeaderComponent } from './view/header/header.component';
 
 import { schema } from './db';
 import { userReducer } from './reducer/user.reducer';
+import { userListReducer } from './reducer/userlist.reducer';
 import { AuthenticationService } from './service/authentication.service';
 
 import {
@@ -78,7 +78,7 @@ import {
       compose(
         storeLogger(),
         combineReducers
-      )({ user: userReducer })
+      )({ user: userReducer, userList: userListReducer })
     ),
 
     /**
