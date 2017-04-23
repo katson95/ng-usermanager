@@ -7,7 +7,7 @@ import { Action } from '@ngrx/store';
 export class UserActions {
 
   static ADD_USER = 'ADD_USER';
-  static REMOVE_USER = 'REMOVE_USER';
+  static ADD_USER_SESSION = 'ADD_USER_SESSION';
 
   addUser(user: User): Action {
     return {
@@ -18,9 +18,11 @@ export class UserActions {
   }
 
 
-  deleteUser(user: User): Action {
+  addUserToSession(user: User): Action {
+    console.log('logged in user :' + JSON.stringify(user));
     return {
-      type: UserActions.REMOVE_USER,
+      type: UserActions.ADD_USER_SESSION,
+      payload: user
     };
   }
 

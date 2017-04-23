@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Message } from 'primeng/components/common/api';
 
 @Component({
   selector: 'app-profile',
@@ -7,19 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+
+
   minimumValue: number = 1;
   maximumValue: number = 6;
   resultValue: number;
-  
-  val2: number;
 
   userValue: number;
+  givenAttempts: number;
+  usedAttempts: number;
 
-  constructor() { }
+  msgs: Message[] = [];
+
+  constructor() {
+    this.givenAttempts = 3;
+    this.usedAttempts = 0;
+  }
 
   ngOnInit() {
     this.resultValue = this.generateRandomNumber(this.minimumValue, this.maximumValue);
     console.log('Generated value is: ' + this.resultValue);
+    console.log('Total Attemps: ' + this.givenAttempts);
   }
 
   generateRandomNumber(minimumValue: number, maximumValue: number): number {
@@ -27,8 +36,24 @@ export class ProfileComponent implements OnInit {
   }
 
   onCheckResult(userInput: HTMLInputElement) {
-    console.log('User Input value: ' + userInput.value);
     this.userValue = Number(userInput.value);
+    this.msgs = [];
+
+    console.log('User Input value: ' + this.userValue);
+
+    this.usedAttempts++;
+
+    if (this.usedAttempts < this.givenAttempts) {
+      if (this.userValue !== this.resultValue) {
+        this.msgs.push({ severity: 'info', summary: 'Wrong!', detail: 'Attempts remaining: ' + (this.givenAttempts - this.usedAttempts) + ' please try again' });
+      } else {
+        this.msgs.push({ severity: 'success', summary: 'Bingo!', detail: 'You got it..' });
+      }
+    } else {
+      this.msgs.push({ severity: 'error', summary: 'You Failed', detail: 'Get lost' });
+      this.givenAttempts = 3;
+    }
+
   }
 
 }

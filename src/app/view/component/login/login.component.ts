@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(value: any) {
-    console.log(JSON.stringify(value));
     this.authenticator.login(value.username, value.password, this.userList)
       .subscribe(
       (token: any) => this.router.navigate(['/user-profile']),

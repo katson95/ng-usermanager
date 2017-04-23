@@ -28,7 +28,8 @@ describe('ProfileComponent', () => {
       imports: [
         BrowserAnimationsModule,
         SpinnerModule,
-        PanelModule
+        PanelModule,
+        GrowlModule
       ]
     })
       .compileComponents();
