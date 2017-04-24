@@ -61,6 +61,10 @@ export class RegistrationComponent implements OnInit {
 
   registerUser(user: User) {
     console.log(JSON.stringify(user));
+    /**
+     * Here a proper call to the backend should be made to 
+     * save user to the database. In this case ngrx store simulates the database.
+     */
     this.store.dispatch(this.userActions.addUser(user));
     this.submitted = true;
     this.msgs = [];

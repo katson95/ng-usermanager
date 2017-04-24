@@ -17,6 +17,10 @@ export class AuthenticationService implements OnInit {
   ngOnInit(): void { }
 
   login(username: String, password: String, registeredUsers: User[]) {
+    /**
+     * Here a proper call to the backend should be made to 
+     * authenticate user and result either stored in the redux store or localstore
+     */
     this.loginSuccessfull = this.authenticateUser(username, password, registeredUsers);
     console.log('Final result !' + this.loginSuccessfull);
     if (this.loginSuccessfull) {

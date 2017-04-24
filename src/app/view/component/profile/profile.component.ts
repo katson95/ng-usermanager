@@ -15,20 +15,17 @@ export class ProfileComponent implements OnInit {
   resultValue: number;
 
   userValue: number;
-  givenAttempts: number;
   usedAttempts: number;
 
   msgs: Message[] = [];
 
   constructor() {
-    this.givenAttempts = 3;
     this.usedAttempts = 0;
   }
 
   ngOnInit() {
     this.resultValue = this.generateRandomNumber(this.minimumValue, this.maximumValue);
     console.log('Generated value is: ' + this.resultValue);
-    console.log('Total Attemps: ' + this.givenAttempts);
   }
 
   generateRandomNumber(minimumValue: number, maximumValue: number): number {
@@ -37,21 +34,18 @@ export class ProfileComponent implements OnInit {
 
   onCheckResult(userInput: HTMLInputElement) {
     this.userValue = Number(userInput.value);
+    /**
+     * At this point a proper call can be made to the backend to store user guessed result
+     */
     this.msgs = [];
 
     console.log('User Input value: ' + this.userValue);
-
     this.usedAttempts++;
 
-    if (this.usedAttempts < this.givenAttempts) {
-      if (this.userValue !== this.resultValue) {
-        this.msgs.push({ severity: 'info', summary: 'Wrong!', detail: 'Attempts remaining: ' + (this.givenAttempts - this.usedAttempts) + ' please try again' });
-      } else {
-        this.msgs.push({ severity: 'success', summary: 'Bingo!', detail: 'You got it..' });
-      }
+    if (this.userValue !== this.resultValue) {
+      this.msgs.push({ severity: 'info', summary: 'Wrong!', detail: 'Attempts made: ' + (this.usedAttempts) + ' please try again' });
     } else {
-      this.msgs.push({ severity: 'error', summary: 'You Failed', detail: 'Get lost' });
-      this.givenAttempts = 3;
+      this.msgs.push({ severity: 'success', summary: 'Bingo!', detail: 'You got it..' });
     }
 
   }

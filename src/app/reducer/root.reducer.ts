@@ -14,7 +14,7 @@ const reducers = {
   userList: userListReducer,
 };
 
-const developmentReducer = combineReducers(reducers);
+const developmentReducer = compose(storeLogger(), combineReducers)(reducers);
 
 export function rootReducer(state: any, action: any) {
   return developmentReducer(state, action);
